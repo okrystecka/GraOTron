@@ -25,10 +25,9 @@ public:
     CPole();
     ~CPole();
     void podejmijDecyzje();
-    CBudynek* dodajBudynek(string);
+    CBudynek* dodajBudynek(CBudynek::typy);
     CBudynek* pokazBudynek();
 
 };
-
 
 #endif //GRAOTRON_CPOLE_H

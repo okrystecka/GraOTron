@@ -37,7 +37,7 @@ void CTeren::generujPola(){
 
 }
 
-CBudynek* CTeren::dodajBudynek(string typ) {
+CBudynek* CTeren::dodajBudynek(CBudynek::typy typ) {
 
     int ktorepole = 9999;
 

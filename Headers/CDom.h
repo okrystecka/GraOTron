@@ -16,7 +16,7 @@ private:
     int wspolPodatkow;
 
 public:
-    static string type = "dom";
+//    static string type = "dom";
     explicit CDom(CKrolestwo*, int = 0);
     ~CDom();
 

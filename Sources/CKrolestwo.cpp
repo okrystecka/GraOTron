@@ -34,11 +34,25 @@ CKrolestwo::~CKrolestwo() {
 
     for (int i = 3; i >= 0 ; i--){
         delete magazyny[i];
-        //hlhlhlh
         magazyny.erase(magazyny.begin() + i);
     }
-    cout << "Destruktor CKrolestwo" << endl;
 
+    for (int i = (szpiedzy.size() - 1); i >= 0 ; i--){
+        delete szpiedzy[i];
+        szpiedzy.erase(szpiedzy.begin() + i);
+    }
+
+    for (int i = (poslowie.size() - 1); i >= 0 ; i--) {
+        delete poslowie[i];
+        poslowie.erase(poslowie.begin() + i);
+    }
+
+    for (int i = (zolnierze.size() - 1); i >= 0 ; i--) {
+        delete zolnierze[i];
+        zolnierze.erase(zolnierze.begin() + i);
+    }
+
+        cout << "Destruktor CKrolestwo" << endl;
 }
 
 void CKrolestwo::tura() {
@@ -94,7 +108,7 @@ string CKrolestwo::wypiszNazwe() {
 
 }
 
-void CKrolestwo::dodajBudynek(CTeren* ktoryTeren, string typ) {
+void CKrolestwo::dodajBudynek(CTeren* ktoryTeren, CBudynek::typy typ) {
 
      budynki.push_back(ktoryTeren->dodajBudynek(typ));
 
@@ -103,7 +117,7 @@ void CKrolestwo::dodajBudynek(CTeren* ktoryTeren, string typ) {
 void CKrolestwo::dodajMagazyny() {
 
     for(int i = 0; i < 4; i++){
-        magazyny.push_back((CMagazyn*) powierzchnia[0]->dodajBudynek("magazyn"));
+        magazyny.push_back((CMagazyn*) powierzchnia[0]->dodajBudynek(CBudynek::typy::magazyn));
     }
 
 }
@@ -133,12 +147,12 @@ int CKrolestwo::ileMieszkancow() {
 
     int liczbaM = 0;
     for (int i = 0; i < (budynki.size() - 1); i++){
-        if(budynki[i]->dom){
-//            budynki[i].ileMieszkancow()
+        if(budynki[i]->typ == CBudynek::typy::dom){
+            CDom* temp = (CDom*)budynki[i];
+            liczbaM += temp->ileMieszkancow();
         }
     }
     return liczbaM;
 }
-
 
 

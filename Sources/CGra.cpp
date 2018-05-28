@@ -68,6 +68,7 @@ void CGra::nowaGra(int lKrolestw) {
     }
 
     plansza->wyswietlPlansze();
+
 }
 
 

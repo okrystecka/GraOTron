@@ -51,7 +51,7 @@ public:
     bool czyStac(int zloto, int drewno, int zboze, int metal);
     void wydajSurowiec(int zloto, int drewno, int zboze, int metal);
 
-    void dodajBudynek(CTeren*, string);
+    void dodajBudynek(CTeren*, CBudynek::typy);
     void dodajMagazyny();
 
     void dodajOsobe(string);

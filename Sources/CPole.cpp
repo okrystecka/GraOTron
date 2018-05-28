@@ -21,21 +21,21 @@ void CPole::podejmijDecyzje() {
 
 }
 
-CBudynek* CPole::dodajBudynek(string typ) {
+CBudynek* CPole::dodajBudynek(CBudynek::typy typ) { //todo zmienic stringa na enuma
 
-    if (typ == "magazyn") {
+    if (typ == CBudynek::typy::magazyn) {
 
         this->budynek = new CMagazyn(krolestwo);
         return this->budynek;
 
-    } else if (typ == "dom"){
+    } else if (typ == CBudynek::typy::dom){
 
         this->budynek = new CDom(krolestwo);
         return this->budynek;
 
-    } else if (typ == "wytwornia"){ // gdy beda rozne wytwornie wystarczy dodac else ify
+    } else if (typ == CBudynek::typy::wytwornia){ // gdy beda rozne wytwornie wystarczy dodac else ify
 
-        this->budynek = new CWytwornia(krolestwo, typ);
+        this->budynek = new CWytwornia(krolestwo, "ogolny");
         return this->budynek;
 
     } else {

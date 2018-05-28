@@ -6,6 +6,8 @@
 
 
 CWytwornia::CWytwornia(CKrolestwo* wlasciciel, string nazwa, int lZatrudnionych, int wWydobycia)  : CBudynek(wlasciciel) {
+
+    typ = typy::wytwornia;
     type = nazwa;
     liczbaZatrudnionych = lZatrudnionych;
     wspolWydobycia = wWydobycia;

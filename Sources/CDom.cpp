@@ -6,6 +6,7 @@
 
 CDom::CDom(CKrolestwo* wlasciciel, int lMieszkancow)  : CBudynek(wlasciciel) {
 
+    typ = typy::dom;
     liczbaMieszkancow = lMieszkancow;
     maxMieszkancow = 10;
     wspolPodatkow = lMieszkancow;

@@ -22,7 +22,7 @@ public:
     ~CTeren();
 
     void generujPola();
-    CBudynek* dodajBudynek(string);
+    CBudynek* dodajBudynek(CBudynek::typy);
 
     void zmienPolozenie(int, int);
     void podajPolozenie();

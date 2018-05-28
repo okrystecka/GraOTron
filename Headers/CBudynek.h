@@ -26,11 +26,11 @@ public:
 //    virtual ~CBudynek();
     ~CBudynek();
 
-    enum typ{
+    enum typy{
         magazyn,
         dom,
         wytwornia
-    };
+    } typ;
 
     virtual int rozbuduj();
 

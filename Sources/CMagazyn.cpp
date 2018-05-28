@@ -7,6 +7,7 @@
 
 CMagazyn::CMagazyn( CKrolestwo* wlasciciel, float chronSur, float prodSur, float maxSur, float liczSur) : CBudynek(wlasciciel) {
 
+    typ = typy::magazyn;
     chronioneSurowce = chronSur;
     prodSurowca = prodSur;
     maxSurowca = maxSur;
