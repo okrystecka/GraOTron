@@ -5,19 +5,20 @@
 #include "../Headers/CMagazyn.h"
 
 
-CMagazyn::CMagazyn( CKrolestwo* wlasciciel, float chronSur, float prodSur, float liczSur) : CBudynek(wlasciciel) {
+CMagazyn::CMagazyn( CKrolestwo* wlasciciel, float chronSur, float prodSur, float maxSur, float liczSur) : CBudynek(wlasciciel) {
 
     chronioneSurowce = chronSur;
     prodSurowca = prodSur;
+    maxSurowca = maxSur;
     liczSurowca = liczSur;
 
-    cout << "Konsturktor CMagazyn" << endl;
+    //cout << "Konsturktor CMagazyn" << endl;
 
 }
 
 CMagazyn::~CMagazyn() {
 
-    cout << "Destruktor CMagazyn" << endl;
+    //cout << "Destruktor CMagazyn" << endl;
 
 }
 
@@ -37,19 +38,33 @@ void CMagazyn::odejmij(int ileSurowca) {
 
 }
 
-int CMagazyn::wypiszSurowiec() {
+
+void CMagazyn::dodaj(int ileSurowca) {
+
+    liczSurowca += ileSurowca;
+}
+
+
+float CMagazyn::wypiszSurowiec() {
 
     return liczSurowca;
 
 }
 
+int CMagazyn::rozbuduj() {
+    if(CBudynek::rozbuduj()) {
+        prodSurowca += this->poziom * 0.5;
+        chronioneSurowce += this->poziom * 100;
+        maxSurowca += this->poziom * 1000;
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
 void CMagazyn::stworz() {
-    CBudynek::stworz();
 }
 
 void CMagazyn::usun() {
-    CBudynek::usun();
 }
-
-
 

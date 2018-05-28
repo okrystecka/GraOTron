@@ -7,25 +7,29 @@
 
 #include <iostream>
 #include <vector>
-#include "CKrolestwo.h"
 
 using namespace std;
+
+class CKrolestwo;
 
 class CBudynek {
 protected:
 
     int poziom;
-    int kosztRozbudowy;
+    int kosztRozbudowy[3]; //todo sprawdzić i ustystematyzowac koszty w budynkach, koszty utrzymania???
+    int kosztUtrzymania[3];
     CKrolestwo* wlasciciel;
 
 public:
 
     explicit CBudynek(CKrolestwo*);
-    virtual ~CBudynek();
-    void rozbuduj();
+//    virtual ~CBudynek();
+    ~CBudynek();
+
+    virtual int rozbuduj();
 
     virtual void stworz() = 0;
-    virtual void usun();
+    virtual void usun() = 0;
 
 };
 

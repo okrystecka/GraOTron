@@ -3,3 +3,40 @@
 //
 
 #include "../Headers/CDom.h"
+
+CDom::CDom(CKrolestwo* wlasciciel, int lMieszkancow)  : CBudynek(wlasciciel) {
+
+    liczbaMieszkancow = lMieszkancow;
+    maxMieszkancow = 10;
+    wspolPodatkow = lMieszkancow;
+
+    cout << "Konstruktor CDom" << endl;
+}
+
+CDom::~CDom() {
+
+    cout << "Destruktor CDom" << endl;
+
+}
+
+int CDom::rozbuduj() {
+    if(CBudynek::rozbuduj()){
+        maxMieszkancow += poziom*10;
+        wspolPodatkow += poziom;
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+void CDom::dodajMieszkanca(int ile) {
+    liczbaMieszkancow += ile;
+    wspolPodatkow += ile*2;
+}
+
+void CDom::stworz() {
+
+}
+
+void CDom::usun() {
+}

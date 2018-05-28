@@ -9,6 +9,8 @@ CPlansza::CPlansza(int xrozm, int yrozm) {
     xrozmiar = xrozm;
     yrozmiar = yrozm;
 
+    srand(time(nullptr));
+
     teren = vector<vector<CTeren*>> (xrozmiar, vector<CTeren*>(yrozmiar, nullptr));
 
     cout << "Konstruktor CPlansza" << endl;
@@ -36,7 +38,7 @@ void CPlansza::generujPlansze() {
         }
     }
 
-    wyswietlPlansze();
+
 }
 
 void CPlansza::wyswietlPlansze() {
@@ -49,4 +51,24 @@ void CPlansza::wyswietlPlansze() {
         cout << endl;
 
     }
+}
+
+CTeren* CPlansza::wybierzTeren() {
+
+    int ktoryTerenx, ktoryTereny;
+    do {
+        ktoryTerenx = (rand() % teren.size());
+        ktoryTereny = (rand() % teren[0].size());
+    } while (teren[ktoryTerenx][ktoryTereny]->czyPrzypisane());
+
+    teren[ktoryTerenx][ktoryTereny]->zmienPolozenie(ktoryTerenx, ktoryTereny);
+    teren[ktoryTerenx][ktoryTereny]->podajPolozenie();
+    teren[ktoryTerenx][ktoryTereny]->zmienTresc("|x");
+    return teren[ktoryTerenx][ktoryTereny];
+
+}
+
+bool CPlansza::czyOtoczeniePrzypisane(int x, int y) {
+
+    return false;
 }

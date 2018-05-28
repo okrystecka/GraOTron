@@ -16,8 +16,11 @@ private:
 public:
     explicit CPlansza(int = 5, int = 5);
     ~CPlansza();
+
     void generujPlansze();
     void wyswietlPlansze();
+    CTeren* wybierzTeren();
+    bool czyOtoczeniePrzypisane(int x, int y);
 
 };
 

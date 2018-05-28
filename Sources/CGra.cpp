@@ -14,41 +14,14 @@ CGra::~CGra() {
 
     int size = static_cast<int>(krolestwa.size());
 
-    for (int i = 0; i < size; i++){
+    for (int i = (size - 1); i >= 0; i--){
         delete krolestwa[i];
-        krolestwa.erase(krolestwa.begin() + krolestwa.size() - 1);
+        krolestwa.erase(krolestwa.begin() + i);
     }
 
     cout << "Papa ;( Destruktor CGra" << endl;
 
 }
-
-void CGra::update() {
-
-}
-
-void CGra::tura() {
-
-    cout << "Nowa tura" << endl;
-
-}
-
-void CGra::nowaGra(int lKrolestw) {
-
-    cout << "Nowa gra" << endl;
-    plansza = new CPlansza;
-    for (int i = 0; i < lKrolestw; i++) {
-
-        CKrolestwo* krolestwo;
-        krolestwo = new CKrolestwo();
-        krolestwa.push_back(krolestwo);
-        cout << "Stworzono krolestwo nr " << i << endl;
-
-    }
-
-    plansza->generujPlansze();
-}
-
 
 void CGra::menu() {
 
@@ -56,7 +29,8 @@ void CGra::menu() {
     int lKrolestw = 3;
 
     cout << "Witaj w menu! Wybierz jedna z opcji: \n 1 - Nowa Gra \n 9 - Wyjście z gry" << endl;
-    cin >> opcja;
+    //cin >> opcja;
+    opcja = 1;
 
     do {
         switch (opcja) {
@@ -74,6 +48,37 @@ void CGra::menu() {
                 cout << "Wybierz jedna z opcji" << endl;
                 break;
         }
-    } while (opcja != 1 && opcja != 9);
+    } while (opcja != 1 && opcja != 9); //todo sprawdzić kiedy zachodzi warunek
+
+}
+
+void CGra::nowaGra(int lKrolestw) {
+
+    cout << "Nowa gra" << endl;
+    plansza = new CPlansza;
+    plansza->generujPlansze();
+
+    for (int i = 0; i < lKrolestw; i++) {
+
+        CKrolestwo* krolestwo;
+        krolestwo = new CKrolestwo(plansza->wybierzTeren());
+        krolestwa.push_back(krolestwo);
+        cout << "Stworzono krolestwo nr " << i << endl;
+
+    }
+
+    plansza->wyswietlPlansze();
+}
+
+
+void CGra::update() {
+
+}
+
+void CGra::tura() {
+
+    cout << "Nowa tura" << endl;
+    cout << "Wybierz czynność: " << endl;
+
 
 }

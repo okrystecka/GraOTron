@@ -5,15 +5,16 @@
 #ifndef GRAOTRON_CKROLESTWO_H
 #define GRAOTRON_CKROLESTWO_H
 
-#include "CMagazyn.h"
+#include "CPlansza.h"
 
 //todo jak generowac budynki
+
 
 class CKrolestwo {
 
 private:
     string nazwa;
-    int x, y; // połozenie stolicy
+    vector <CTeren*> powierzchnia;
     int liczMieszkancow;
     vector <CBudynek*> budynki;
     vector <CMagazyn*> magazyny; // kolejnosc - zloto, drewno, zboże, metal
@@ -31,15 +32,19 @@ private:
     };
 
 public:
-    explicit CKrolestwo(int = 100, double = 100, double = 100);
+    explicit CKrolestwo(CTeren* , int = 100, double = 100, double = 100);
     virtual ~CKrolestwo();
 
     void tura();
-    void dodajSurowiec();
+    void dodajSurowiec(int, int, int, int);
     void stanMagazynow();
     bool czyStac(int zloto, int drewno, int zboze, int metal);
     void wydajSurowiec(int zloto, int drewno, int zboze, int metal);
+    void dodajBudynek(CTeren*, string);
+    void dodajMagazyny();
     void zbuduj();
+    string wypiszNazwe();
+
 };
 
 #endif //GRAOTRON_CKROLESTWO_H

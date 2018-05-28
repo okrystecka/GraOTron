@@ -6,8 +6,23 @@
 #define GRAOTRON_CDOM_H
 
 
-class CDom {
+#include "CBudynek.h"
 
+class CDom : public CBudynek{
+
+private:
+    int liczbaMieszkancow;
+    int maxMieszkancow;
+    int wspolPodatkow;
+
+public:
+    explicit CDom(CKrolestwo*, int = 0);
+    ~CDom();
+
+    int rozbuduj() override;
+    void dodajMieszkanca(int);
+    void stworz() override;
+    void usun() override;
 };
 
 

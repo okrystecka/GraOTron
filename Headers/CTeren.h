@@ -15,16 +15,23 @@ private:
     string tresc;
     vector <CPole*> pola;
     vector <COsoba*> jednostki;
+    CKrolestwo* krolestwo;
 
 public:
     CTeren(int, int);
     ~CTeren();
-    void stworzPola();
-     void podajPolozenie();
-     string podajTresc();
 
+    void generujPola();
+    CBudynek* dodajBudynek(string);
+
+    void zmienPolozenie(int, int);
+    void podajPolozenie();
+    void zmienTresc(string);
+    string podajTresc();
+
+    void przypiszKrolestwo(CKrolestwo* krol);
+    CKrolestwo* czyPrzypisane();
 
 };
-
 
 #endif //GRAOTRON_CTEREN_H
