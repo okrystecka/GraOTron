@@ -10,12 +10,26 @@
 
 using namespace std;
 
+class CKrolestwo;
+class CTeren;
 
 class COsoba {
 
+private:
+    int maxZycie;
+    int obecneZycie;
+    CKrolestwo* krolestwo;
+    CTeren* pozycja;
+
+
 public:
-    COsoba();
+    COsoba(CKrolestwo*, CTeren*, int = 100, int = 100);
     virtual ~COsoba();
+
+    void odejmijZycie(int);
+    void zmienPozycje(CTeren*);
+    CTeren* podajPozycje();
+    CKrolestwo* podajKrolestwo();
 
 };
 

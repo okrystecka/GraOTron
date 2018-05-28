@@ -34,9 +34,15 @@ void CDom::dodajMieszkanca(int ile) {
     wspolPodatkow += ile*2;
 }
 
+int CDom::ileMieszkancow() {
+    return liczbaMieszkancow;
+}
+
 void CDom::stworz() {
 
 }
 
 void CDom::usun() {
 }
+
+

@@ -7,14 +7,19 @@
 CKrolestwo::CKrolestwo(CTeren* stolica, int lMiesz, double maxObr, double obObr) {
 
     int ktoraNazwa = rand()%7;
-    powierzchnia.push_back(stolica);
     nazwa = nazwyKrolestw[ktoraNazwa];
-    liczMieszkancow = lMiesz;
-    maxObrona = maxObr;
-    obecnaObrona = obObr;
+    powierzchnia.push_back(stolica);
     budynki = vector<CBudynek*> (0, nullptr);
     magazyny = vector<CMagazyn*> (0, nullptr);
     dodajMagazyny();
+
+    liczMieszkancow = lMiesz;
+    szpiedzy = vector<CSzpieg*> (0, nullptr);
+    poslowie = vector<CPosel*> (0, nullptr);
+    zolnierze = vector<CZolnierz*> (0, nullptr);
+
+    maxObrona = maxObr;
+    obecnaObrona = obObr;
 
     cout << "Konstruktor CKrolestwo" << endl;
 
@@ -82,9 +87,6 @@ void CKrolestwo::wydajSurowiec(int zloto, int drewno, int zboze, int metal) {
 
 }
 
-void CKrolestwo::zbuduj() {
-
-}
 
 string CKrolestwo::wypiszNazwe() {
 
@@ -104,6 +106,38 @@ void CKrolestwo::dodajMagazyny() {
         magazyny.push_back((CMagazyn*) powierzchnia[0]->dodajBudynek("magazyn"));
     }
 
+}
+
+void CKrolestwo::dodajOsobe(string typ) {
+
+    if (typ == "zolnierz"){
+
+        zolnierze.push_back(new CZolnierz(this, powierzchnia[0]));
+
+    } else if (typ == "szpieg") {
+
+        szpiedzy.push_back(new CSzpieg(this, powierzchnia[0]));
+
+    } else if (typ == "posel") {
+
+        poslowie.push_back(new CPosel(this, powierzchnia[0]));
+
+    } else {
+
+        cout << "Nieprawidlowy typ tworzonej osoby" << endl;
+
+    }
+}
+
+int CKrolestwo::ileMieszkancow() {
+
+    int liczbaM = 0;
+    for (int i = 0; i < (budynki.size() - 1); i++){
+        if(budynki[i]->dom){
+//            budynki[i].ileMieszkancow()
+        }
+    }
+    return liczbaM;
 }
 
 

@@ -16,11 +16,14 @@ private:
     int wspolPodatkow;
 
 public:
+    static string type = "dom";
     explicit CDom(CKrolestwo*, int = 0);
     ~CDom();
 
     int rozbuduj() override;
     void dodajMieszkanca(int);
+    int ileMieszkancow();
+
     void stworz() override;
     void usun() override;
 };

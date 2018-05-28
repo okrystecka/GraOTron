@@ -26,6 +26,12 @@ public:
 //    virtual ~CBudynek();
     ~CBudynek();
 
+    enum typ{
+        magazyn,
+        dom,
+        wytwornia
+    };
+
     virtual int rozbuduj();
 
     virtual void stworz() = 0;
